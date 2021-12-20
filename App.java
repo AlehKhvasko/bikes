@@ -7,6 +7,7 @@ public class App {
         for (int i = 0; i < bikePark.length; i++) {
            int randomWheels = ((int) (Math.random() * 3 + 1));
            switch (randomWheels){
+               //objects are not created
                case 1:
                    bikePark[i] = new OneWheel( randomWheels, wheelSize[1]);
                case 2:
