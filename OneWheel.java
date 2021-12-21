@@ -1,6 +1,11 @@
 package projectsHandsOn.AdvancedOOP.animals.bikes;
 
 public class OneWheel extends Bike {
+    private String name = "OneWheel";
+    private int sumOfSizes = 0;
+    public String getName() {
+        return name;
+    }
 
     public OneWheel(int wheels, int wheelSize) {
         super(wheels, wheelSize);
