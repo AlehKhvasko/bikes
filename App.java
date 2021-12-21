@@ -57,7 +57,7 @@ public class App {
         }
         for (Bike el:bikePark) {
             System.out.print(el.getWheelSize() + " ");
-        }
+        }System.out.println();
         return bikePark;
     }
 
