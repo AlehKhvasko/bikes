@@ -13,6 +13,9 @@ public class App {
         //sort by lowest size of the wheel
         sortByWheelSize(bikePark);
         //sort by sum of sizes
+        //----
+        //repair bikes
+        Manufacture.repairBike(bikePark[1]);
     }
 
     public static Bike[] fillUpArr(){
@@ -23,13 +26,13 @@ public class App {
             switch (randomWheels){
                 //objects are not created
                 case 1:
-                    bikePark[i] = new OneWheel( randomWheels, wheelSize[randomWheels - 1]);
+                    bikePark[i] = new OneWheel( randomWheels, wheelSize[randomWheels - 1], "One Wheel");
                     break;
                 case 2:
-                    bikePark[i] = new TwoWheel( randomWheels, wheelSize[randomWheels - 1]);
+                    bikePark[i] = new TwoWheel( randomWheels, wheelSize[randomWheels - 1], "Two Wheel");
                     break;
                 case 3:
-                    bikePark[i] = new ThreeWheel( randomWheels, wheelSize[randomWheels - 1]);
+                    bikePark[i] = new ThreeWheel( randomWheels, wheelSize[randomWheels - 1], "Three wheel");
                     break;
                 default:
                     System.out.println("Something went wrong.");
