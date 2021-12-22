@@ -4,16 +4,17 @@ public class App {
     public static void main(String[] args) {
         //fill up with random Objects
         Bike[] bikePark = fillUpArr();
+        //fix one wheel bikes
         for (int i = 0; i < bikePark.length ; i++) {
             if (bikePark[i].getWheelSize() == 1){
-                System.out.println("Assembling bike number " + ((i) + 1));
-                bikePark[i].assembleBike();
+                System.out.println("Repairing bike number " + ((i) + 1));
+                bikePark[i].repairBike();
             }
         }
         //sort by lowest size of the wheel
         sortByWheelSize(bikePark);
         //sort by sum of sizes
-        //----
+
         //repair bikes
         Manufacture.repairBike(bikePark[1]);
     }
@@ -24,28 +25,23 @@ public class App {
         for (int i = 0; i < bikePark.length; i++) {
             int randomWheels = ((int) (Math.random() * 3 + 1));
             switch (randomWheels){
-                //objects are not created
                 case 1:
-                    bikePark[i] = new OneWheel( randomWheels, wheelSize[randomWheels - 1], "One Wheel");
+                    bikePark[i] = new OneWheel( 1, wheelSize[randomWheels - 1]);
                     break;
                 case 2:
-                    bikePark[i] = new TwoWheel( randomWheels, wheelSize[randomWheels - 1], "Two Wheel");
+                    bikePark[i] = new TwoWheel( 2, wheelSize[randomWheels - 1]);
                     break;
                 case 3:
-                    bikePark[i] = new ThreeWheel( randomWheels, wheelSize[randomWheels - 1], "Three wheel");
+                    bikePark[i] = new ThreeWheel(3, wheelSize[randomWheels - 1]);
                     break;
                 default:
-                    System.out.println("Something went wrong.");
+                    System.out.println("Error");
             }
         }
         return bikePark;
     }
 
     public static Bike[] sortByWheelSize(Bike[] bikePark){
-        for (Bike el:bikePark) {
-            System.out.print(el.getWheelSize() + " ");
-
-        }System.out.println();
         for (int i = 0; i < bikePark.length - 1; i++) {
             for (int j = i; j < bikePark.length; j++) {
                 if (bikePark[i].getWheelSize() > bikePark[j].getWheelSize()){
@@ -61,13 +57,9 @@ public class App {
         return bikePark;
     }
 
-   public static Bike[] sortBySumOfWheelSizes(Bike[] bikePark){
+   public static Bike[] sumOfSizes(Bike[] bikePark){
         for (int i = 0; i < bikePark.length; i++) {
-            for (int j = 0; j < bikePark.length; j++) {
-                if (bikePark[i].getClass().isInstance(bikePark[j])) {
-                   bikePark[i].setSumOfSizes(bikePark[j].getWheelSize());
-                }
-            }
+
         }
 
         return bikePark;
