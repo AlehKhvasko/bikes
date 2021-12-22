@@ -12,9 +12,9 @@ public class App {
             }
         }
         //sort by lowest size of the wheel
-        sortByWheelSize(bikePark);
+        //sortByWheelSize(bikePark);
         //sort by sum of sizes
-
+        sumOfSizes(bikePark);
         //repair bikes
         Manufacture.repairBike(bikePark[1]);
     }
@@ -57,11 +57,25 @@ public class App {
         return bikePark;
     }
 
-   public static Bike[] sumOfSizes(Bike[] bikePark){
+    public static Bike[] sumOfSizes(Bike[] bikePark){
         for (int i = 0; i < bikePark.length; i++) {
-
+            for (int j = i; j < bikePark.length; j++) {
+                if (compareSizes(bikePark[i], bikePark[j])){
+                    Bike temp = bikePark[j];
+                    bikePark[j] = bikePark[i];
+                    bikePark[j] = temp;
+                }
+            }
         }
-
+        for (Bike bike:bikePark) {
+            System.out.println(bike.getWheelSize() * bike.getWheels());
+        }
         return bikePark;
     }
+
+    public static boolean compareSizes(Bike first, Bike second){
+        return first.getWheels()*first.getWheelSize() > second.getWheels()*second.getWheelSize();
+    }
+
+
 }
