@@ -12,7 +12,7 @@ public class App {
             }
         }
         //sort by lowest size of the wheel
-        //sortByWheelSize(bikePark);
+        sortByWheelSize(bikePark);
         //sort by sum of sizes
         sumOfSizes(bikePark);
         //repair bikes
@@ -68,8 +68,10 @@ public class App {
             }
         }
         for (Bike bike:bikePark) {
-            System.out.println(bike.getWheelSize() * bike.getWheels());
+            System.out.print(bike.getClass().getSimpleName() + ">: ");
+            System.out.print(bike.getWheelSize() * bike.getWheels() + " ");
         }
+        System.out.println();
         return bikePark;
     }
 
